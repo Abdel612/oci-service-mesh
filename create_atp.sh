@@ -11,6 +11,7 @@ kubectl create namespace ${mesh_name}
 kubectl create secret generic admin-secret --from-literal=password=$2 -n ${mesh_name}
 kubectl create secret generic wallet-secret --from-literal=walletPassword=$2 -n ${mesh_name}
 kubectl create -f atp.yaml
+echo "Awaiting for the ATP instance $1 become Active .."
 spin='-\|/'
 tries=0
 atp_status_status=""
