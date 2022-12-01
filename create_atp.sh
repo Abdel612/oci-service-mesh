@@ -3,7 +3,7 @@
 # $2 = db password
 sed -i "s/mesh_name/${mesh_name}/g" atp.yaml
 sed -i "s/mesh_compartment/${compartment_ocid}/g" atp.yaml
-sed -i "s/meshdemo_dbname/$1/g" atp.yaml
+sed -i "s/mesh_dbname/$1/g" atp.yaml
 kubectl create namespace ${mesh_name}
 kubectl create secret generic admin-secret --from-literal=password=$2 -n ${mesh_name}
 kubectl create secret generic wallet-secret --from-literal=walletPassword=$2 -n ${mesh_name}
