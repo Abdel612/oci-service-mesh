@@ -4,6 +4,9 @@
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
   exit
 fi
+# Create registry
+oci artifacts container repository create -c ${mesh_compartment} --display-name ${mesh_name}
+
 # BUILD PRICE v1
 mkdir -p ./price/Wallet
 kubectl get secret wallet -n ${mesh_name} -o jsonpath='{.data}' | jq '."tnsnames.ora"' | tr -d '"' | 
@@ -23,17 +26,17 @@ sed -i "s/meshdemo_dbname/$1/g" ./price.js
 sed -i "s/atp_pwd/$2/g" ./price.js
 sed -i "s/admin_pwd/$2/g" ./price.js
 wget ${instant_client} -q
-docker build -t $3/meshdemo-pricesvc:v1-${mesh_name} .
-docker push $3/meshdemo-pricesvc:v1-${mesh_name}
+docker build -t $3/${mesh_name}-pricesvc:v1 .
+docker push $3/${mesh_name}-pricesvc:v1
 cd ..
 # BUILD HOME v1 - STATIC
 cd ./home/
 cp ./html/pricing/index_static.html ./html/pricing/index.html
-docker build -t $3/meshdemo-homesvc:v1-${mesh_name} .
-docker push $3/meshdemo-homesvc:v1-${mesh_name}
+docker build -t $3/${mesh_name}-homesvc:v1-${mesh_name} .
+docker push $3/${mesh_name}-homesvc:v1-${mesh_name}
 # BUILD HOME v2 - DYNAMIC
 export admin_link=admin.${dns_domain}
 sed -i "s|admin_link|${admin_link}|g" ./html/pricing/index_dynamic.html
 cp ./html/pricing/index_dynamic.html ./html/pricing/index.html
-docker build -t $3/meshdemo-homesvc:v2-${mesh_name} .
-docker push $3/meshdemo-homesvc:v2-${mesh_name}
+docker build -t $3/${mesh_name}-homesvc:v2-${mesh_name} .
+docker push $3/${mesh_name}-homesvc:v2-${mesh_name}
