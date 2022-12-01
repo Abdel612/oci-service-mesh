@@ -1,7 +1,6 @@
 # $1 = db name
 # $2 = db password
-# $3 = OCI registry
-if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
+if [ -z "$1" ] || [ -z "$2" ]; then
   exit
 fi
 if [ ! -f "instantclient-basic-linux.x64-21.7.0.0.0dbru.zip" ]; then
@@ -39,18 +38,18 @@ cd ./price/
 sed -i "s/meshdemo_dbname/$1/g" ./price.js
 sed -i "s/atp_pwd/$2/g" ./price.js
 sed -i "s/admin_pwd/$2/g" ./price.js
-docker build -t $3/${mesh_name}-pricesvc:v1 .
-docker push $3/${mesh_name}-pricesvc:v1
+docker build -t ${ocir}/${mesh_name}-pricesvc:v1 .
+docker push ${ocir}/${mesh_name}-pricesvc:v1
 cd ..
 # BUILD HOME v1 - STATIC
 cd ./home/
 cp ./html/pricing/index_static.html ./html/pricing/index.html
-docker build -t $3/${mesh_name}-homesvc:v1 .
-docker push $3/${mesh_name}-homesvc:v1
+docker build -t ${ocir}/${mesh_name}-homesvc:v1 .
+docker push ${ocir}/${mesh_name}-homesvc:v1
 # BUILD HOME v2 - DYNAMIC
 export admin_link=admin.${dns_domain}
 sed -i "s|admin_link|${admin_link}|g" ./html/pricing/index_dynamic.html
 cp ./html/pricing/index_dynamic.html ./html/pricing/index.html
-docker build -t $3/${mesh_name}-homesvc:v2 .
-docker push $3/${mesh_name}-homesvc:v2
+docker build -t ${ocir}/${mesh_name}-homesvc:v2 .
+docker push ${ocir}/${mesh_name}-homesvc:v2
 rm -f ./html/pricing/index.html
