@@ -5,11 +5,15 @@ if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
   exit
 fi
 # Create registry
-oci artifacts container repository create -c ${mesh_compartment} --display-name ${mesh_name}
+oci artifacts container repository create -c ${mesh_compartment} --display-name ${mesh_name}-homesvc
+oci artifacts container repository create -c ${mesh_compartment} --display-name ${mesh_name}-pricesvc
 
 # BUILD PRICE v1
 if [ -d "./price/Wallet" ]; then
   rm -rf ./price/Wallet
+fi
+if [ -d "./Wallet" ]; then
+  rm -rf ./Wallet
 fi
 mkdir -p ./price/Wallet
 kubectl get secret wallet -n ${mesh_name} -o jsonpath='{.data}' | jq '."tnsnames.ora"' | tr -d '"' | 
@@ -28,7 +32,6 @@ cd ./price/
 sed -i "s/meshdemo_dbname/$1/g" ./price.js
 sed -i "s/atp_pwd/$2/g" ./price.js
 sed -i "s/admin_pwd/$2/g" ./price.js
-wget ${instant_client} -q
 docker build -t $3/${mesh_name}-pricesvc:v1 .
 docker push $3/${mesh_name}-pricesvc:v1
 cd ..
