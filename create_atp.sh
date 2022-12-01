@@ -10,16 +10,14 @@ kubectl create secret generic wallet-secret --from-literal=walletPassword=$2 -n 
 kubectl create -f atp.yaml
 spin='-\|/'
 tries=0
-export atp_status=''
+atp_status=''
 while [ $tries -le 30 ] && [[ $atp_status != 'Active' ]] 
 do
   i=$(( (i+1) %4 ))
   printf "\r${spin:$i:1}
-  atp_status=$(./kubectl get AutonomousDatabases -n ${meshdemo_version} -o json | jq 
-'.items[]'.status.status.conditions[].type)
+  atp_status=$(kubectl get AutonomousDatabases -n ${meshdemo_version} -o json | jq '.items[]'.status.status.conditions[].type)
   if [ "$atp_status" != "" ]; then
-   atp_status=$(./kubectl get AutonomousDatabases -n ${meshdemo_version} -o json | jq 
-'.items[].status.status.conditions[] | select(."type" == "Active") | .type' | tr -d '"')
+   atp_status=$(kubectl get AutonomousDatabases -n ${meshdemo_version} -o json | jq '.items[].status.status.conditions[] | select(."type" == "Active") | .type' | tr -d '"')
   fi
   tries=$(( $tries + 1 ))
   #sleep 1
