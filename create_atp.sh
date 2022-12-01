@@ -19,7 +19,13 @@ do
   tries=$(( $tries + 1 ))
   sleep 1
 done
-# .. then start polling for status
+atp_status=$(kubectl get AutonomousDatabases -n ${mesh_name} -o json | jq '.items[].status.status.conditions[].type' | tr -d '"')
+echo $atp_status
+if [ "$atp_status" != "Provisioning" ] && [[ $atp_status != 'Active' ]] ; then
+  echo "ATP instance $1 does not exist/could not be created .. "
+  exit
+fi
+# .. then start polling for status if it is found
 tries=0
 atp_status=''
 while [ $tries -le 300 ] && [[ $atp_status != 'Active' ]] 
@@ -29,6 +35,7 @@ do
   atp_status=$(kubectl get AutonomousDatabases -n ${mesh_name} -o json | jq '.items[].status.status.conditions[] | select(."type" == "Active") | .type' | tr -d '"')
   tries=$(( $tries + 1 ))
   #sleep 1
+  echo $atp_status
 done
 if [ -z "$atp_status" ]; then
   echo "ATP instance $1 does not exist/could not be created .. "
