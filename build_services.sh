@@ -10,7 +10,7 @@ kubectl get secret wallet -n ${mesh_name} -o jsonpath='{.data}' | jq '."tnsnames
 base64 --decode > ./price/Wallet/tnsnames.ora
 kubectl get secret wallet -n ${mesh_name} -o jsonpath='{.data}' | jq '."sqlnet.ora"' | tr -d '"' | 
 base64 --decode > ./price/Wallet/sqlnet.ora
-./kubectl get secret wallet -n ${mesh_name} -o jsonpath='{.data}' | jq '."cwallet.sso"' | tr -d '"' | 
+kubectl get secret wallet -n ${mesh_name} -o jsonpath='{.data}' | jq '."cwallet.sso"' | tr -d '"' | 
 base64 --decode > ./price/Wallet/cwallet.sso
 sed -i "s|"?/network/admin"|"./Wallet"|g" ./price/Wallet/sqlnet.ora
 cd ./price/Wallet
