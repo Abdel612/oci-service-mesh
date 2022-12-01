@@ -1,6 +1,9 @@
 # Install database via OSOK
 # $1 = db name
 # $2 = db password
+if [ -z "$1" ] || [ -z "$2" ]; then
+  exit
+fi
 sed -i "s/mesh_name/${mesh_name}/g" atp.yaml
 sed -i "s/mesh_compartment/${mesh_compartment}/g" atp.yaml
 sed -i "s/mesh_dbname/$1/g" atp.yaml
@@ -16,8 +19,9 @@ do
   i=$(( (i+1) %4 ))
   printf "\r${spin:$i:1}"
   atp_status=$(kubectl get AutonomousDatabases -n ${mesh_name} -o json | jq '.items[] | select(.spec.dbName == "$1") | .status' | tr -d '"')
+  echo $atp_status
   if [ "$atp_status" != "" ]; then
-    atp_status=$(echo $atp_status | jq '.status.status.conditions[] | select(."type" == "Active") | .type' | tr -d '"')
+    atp_status=$(kubectl get AutonomousDatabases -n ${mesh_name} -o json | jq '.items[] | select(.spec.dbName == "$1") | .status' | jq '.status.conditions[].type' | tr -d '"')
   fi
   tries=$(( $tries + 1 ))
   #sleep 1
