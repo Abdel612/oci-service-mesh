@@ -10,6 +10,7 @@ sed -i "s/mesh_dbname/$1/g" atp.yaml
 kubectl create namespace ${mesh_name}
 kubectl create secret generic admin-secret --from-literal=password=$2 -n ${mesh_name}
 kubectl create secret generic wallet-secret --from-literal=walletPassword=$2 -n ${mesh_name}
+echo "Create ATP instance $1 with kubectl .."
 kubectl create -f atp.yaml
 echo "Awaiting for the ATP instance $1 become Active .."
 spin='-\|/'
