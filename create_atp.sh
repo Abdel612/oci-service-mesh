@@ -26,6 +26,9 @@ do
   tries=$(( $tries + 1 ))
   #sleep 1
 done
-if [ "$atp_status_status" == "Active" ]; then
+if [ "$atp_status_status" != "Active" ]; then
+  echo ""
   echo "ATP instance $1 does not exist/could not be created."
+else
+   echo "ATP instance $1 is Active."
 fi
