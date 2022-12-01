@@ -79,7 +79,7 @@ spec:
       serviceAccountName: meshdemo-home
       containers:
         - name: home
-          image: meshdemo_registry/meshdemo-homesvc:v1-tag
+          image: meshdemo_registry/mesh_name-homesvc:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
@@ -112,7 +112,7 @@ spec:
       serviceAccountName: meshdemo-home
       containers:
         - name: home
-          image: meshdemo_registry/meshdemo-homesvc:v2-tag
+          image: meshdemo_registry/mesh_name-homesvc:v2
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
@@ -185,7 +185,7 @@ spec:
       serviceAccountName: meshdemo-price
       containers:
         - name: price
-          image: meshdemo_registry/meshdemo-pricesvc:v1-tag
+          image: meshdemo_registry/mesh_name-pricesvc:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3010
