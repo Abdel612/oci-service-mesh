@@ -35,12 +35,12 @@ cd ..
 # BUILD HOME v1 - STATIC
 cd ./home/
 cp ./html/pricing/index_static.html ./html/pricing/index.html
-docker build -t $3/${mesh_name}-homesvc:v1-${mesh_name} .
-docker push $3/${mesh_name}-homesvc:v1-${mesh_name}
+docker build -t $3/${mesh_name}-homesvc:v1 .
+docker push $3/${mesh_name}-homesvc:v1
 # BUILD HOME v2 - DYNAMIC
 export admin_link=admin.${dns_domain}
 sed -i "s|admin_link|${admin_link}|g" ./html/pricing/index_dynamic.html
 cp ./html/pricing/index_dynamic.html ./html/pricing/index.html
-docker build -t $3/${mesh_name}-homesvc:v2-${mesh_name} .
-docker push $3/${mesh_name}-homesvc:v2-${mesh_name}
+docker build -t $3/${mesh_name}-homesvc:v2 .
+docker push $3/${mesh_name}-homesvc:v2
 rm -f ./html/pricing/index.html
