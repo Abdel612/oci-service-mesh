@@ -19,13 +19,13 @@ do
   i=$(( (i+1) %4 ))
   printf "\r${spin:$i:1}"
   atp_status=$(kubectl get AutonomousDatabases -n ${mesh_name} -o json | jq '.items[] | select(.spec.dbName == "'$1'") | .status' | tr -d '"')
-  echo $atp_status
+  echo "1> $atp_status"
   if [ "$atp_status" != "" ]; then
     atp_status=$(kubectl get AutonomousDatabases -n ${mesh_name} -o json | jq '.items[] | select(.spec.dbName == "'$1'") | .status' | jq '.status.conditions[].type' | tr -d '"')
+    echo "2> $atp_status"
   fi
   tries=$(( $tries + 1 ))
   #sleep 1
-  echo $atp_status
 done
 if [ -z "$atp_status" ]; then
   echo "ATP instance $1 does not exist/could not be created .. Exciting."
