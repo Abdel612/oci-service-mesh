@@ -9,7 +9,7 @@ const basicAuth = require('express-basic-auth')
 oracledb.initOracleClient({ libDir: '/instantclient_21_7', configDir: '/Wallet/' });
 
 app.use('/admin', basicAuth({
-    users: { 'priceadmin': 'meshdemo_pwd' },
+    users: { 'priceadmin': 'admin_pwd' },
     challenge: true,
     realm: 'Price Admin'
 }));
