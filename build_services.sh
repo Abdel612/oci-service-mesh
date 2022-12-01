@@ -5,7 +5,7 @@ if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
   exit
 fi
 if [ ! -f "instantclient-basic-linux.x64-21.7.0.0.0dbru.zip" ]; then
-  "Download instantclient-basic-linux.x64-21.7.0.0.0dbru.zip from OTN with wget at https://download.oracle.com/otn_software/linux/instantclient/217000/instantclient-basic-linux.x64-21.7.0.0.0dbru.zip first"
+  echo "Download instantclient-basic-linux.x64-21.7.0.0.0dbru.zip from OTN with wget at https://download.oracle.com/otn_software/linux/instantclient/217000/instantclient-basic-linux.x64-21.7.0.0.0dbru.zip first"
   exit
 else
     cp instantclient-basic-linux.x64-21.7.0.0.0dbru.zip ./price/
