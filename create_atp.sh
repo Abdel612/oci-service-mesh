@@ -13,20 +13,20 @@ kubectl create secret generic wallet-secret --from-literal=walletPassword=$2 -n 
 kubectl create -f atp.yaml
 spin='-\|/'
 tries=0
-while [ $tries -le 600 ] && [ -n $atp_status ]
+while [ $tries -le 600 ] && [ -n $atp_status_status ]
 do
   i=$(( (i+1) %4 ))
   printf "\r${spin:$i:1}"
   atp_status=$(kubectl get AutonomousDatabases -n ${mesh_name} -o json | jq '.items[] | select(.spec.dbName == "'$1'") | .status' | tr -d '"')
-  if [ -n "$atp_status" ]; then
-    atp_status=$(kubectl get AutonomousDatabases -n ${mesh_name} -o json | jq '.items[] | select(.spec.dbName == "'$1'") | .status' | jq '.status.conditions[] | select(.type == "Active") | .type' | tr -d '"')
-    echo "2> $atp_status"
+  if [ "$atp_status" != "null" ]; then
+    atp_status_status=$(kubectl get AutonomousDatabases -n ${mesh_name} -o json | jq '.items[] | select(.spec.dbName == "'$1'") | .status' | jq '.status.conditions[] | select(.type == "Active") | .type' | tr -d '"')
+    echo "2> $atp_status_status"
   fi
   tries=$(( $tries + 1 ))
   #sleep 1
 done
-if [ "$atp_status" == "Active" ]; then
+if [ "$atp_status_status" == "Active" ]; then
   echo "ATP instance $1 does not exist/could not be created."
 else
-  echo "ATP instance $1 is $atp_status."
+  echo "ATP instance $1 is Active."
 fi
