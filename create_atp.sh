@@ -18,10 +18,10 @@ while [ $tries -le 600 ] && [[ $atp_status == '' ]]
 do
   i=$(( (i+1) %4 ))
   printf "\r${spin:$i:1}"
-  atp_status=$(kubectl get AutonomousDatabases -n ${mesh_name} -o json | jq '.items[] | select(.spec.dbName == "$1") | .status' | tr -d '"')
+  atp_status=$(kubectl get AutonomousDatabases -n ${mesh_name} -o json | jq '.items[] | select(.spec.dbName == "'$1'") | .status' | tr -d '"')
   echo $atp_status
   if [ "$atp_status" != "" ]; then
-    atp_status=$(kubectl get AutonomousDatabases -n ${mesh_name} -o json | jq '.items[] | select(.spec.dbName == "$1") | .status' | jq '.status.conditions[].type' | tr -d '"')
+    atp_status=$(kubectl get AutonomousDatabases -n ${mesh_name} -o json | jq '.items[] | select(.spec.dbName == "'$1'") | .status' | jq '.status.conditions[].type' | tr -d '"')
   fi
   tries=$(( $tries + 1 ))
   #sleep 1
