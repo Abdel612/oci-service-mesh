@@ -8,7 +8,7 @@ if [ ! -f "instantclient-basic-linux.x64-21.7.0.0.0dbru.zip" ]; then
   "Download instantclient-basic-linux.x64-21.7.0.0.0dbru.zip from OTN with wget at https://download.oracle.com/otn_software/linux/instantclient/217000/instantclient-basic-linux.x64-21.7.0.0.0dbru.zip first"
   exit
 else
-    mv instantclient-basic-linux.x64-21.7.0.0.0dbru.zip ./price/
+    cp instantclient-basic-linux.x64-21.7.0.0.0dbru.zip ./price/
 fi
 
 # Create registry (Optional)
