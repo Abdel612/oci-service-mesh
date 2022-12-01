@@ -1,12 +1,12 @@
 apiVersion: oci.oracle.com/v1beta1
 kind: AutonomousDatabases
 metadata:
-  name: meshdemo_dbname
-  namespace: meshdemo_version
+  name: mesh_dbname
+  namespace: mesh_name
 spec:
-  compartmentId: meshdemo_compartment
-  displayName: meshdemo_dbname
-  dbName: meshdemo_dbname
+  compartmentId: mesh_compartment
+  displayName: mesh_dbname
+  dbName: mesh_dbname
   dbWorkload: OLTP
   isDedicated: false
   dbVersion: 19c
