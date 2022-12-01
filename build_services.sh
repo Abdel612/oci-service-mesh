@@ -8,6 +8,9 @@ fi
 oci artifacts container repository create -c ${mesh_compartment} --display-name ${mesh_name}
 
 # BUILD PRICE v1
+if [ -d "./price/Wallet" ]; then
+  rm -rf ./price/Wallet
+fi
 mkdir -p ./price/Wallet
 kubectl get secret wallet -n ${mesh_name} -o jsonpath='{.data}' | jq '."tnsnames.ora"' | tr -d '"' | 
 base64 --decode > ./price/Wallet/tnsnames.ora
@@ -40,3 +43,4 @@ sed -i "s|admin_link|${admin_link}|g" ./html/pricing/index_dynamic.html
 cp ./html/pricing/index_dynamic.html ./html/pricing/index.html
 docker build -t $3/${mesh_name}-homesvc:v2-${mesh_name} .
 docker push $3/${mesh_name}-homesvc:v2-${mesh_name}
+rm -f ./html/pricing/index.html
