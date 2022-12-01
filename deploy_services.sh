@@ -1,4 +1,8 @@
 sed -i "s/mesh_name/${mesh_name}/g" app.yaml
 sed -i "s|meshdemo_registry|${ocir}|g" app.yaml
 kubectl label namespace $mesh_name servicemesh.oci.oracle.com/sidecar-injection=enabled
+if [ -z "${docker_user}" ] && [ -z "${docker_password}" ]; then
+  echo "Creating docker pull secret for OCIR .."
+  kubectl create secret docker-registry ocirsecret -n $mesh_name --docker-server ${ocir} --docker-username ${docker_username} --docker-password ${docker_password}
+fi
 kubectl create -f app.yaml
