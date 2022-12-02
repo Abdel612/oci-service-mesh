@@ -1,3 +1,8 @@
+read -p "This will delete active service mesh, type Y to continue: " answer
+if [ "${answer}" != "Y" ]; then
+    echo "OK, exiting delete."
+    exit
+fi
 export mesh_to_delete=$(oci service-mesh mesh list --compartment-id ${mesh_compartment} --all | 
 jq '.data.items[] | select(."lifecycle-state" == "ACTIVE") | ."display-name"' | tr -d '"')
 export mesh_to_delete_id=$(oci service-mesh mesh list --compartment-id ${mesh_compartment} 
