@@ -4,11 +4,11 @@ export mesh_to_delete_id=$(oci service-mesh mesh list --compartment-id ${mesh_co
 --all | jq '.data.items[] | select(."lifecycle-state" == "ACTIVE") | .id' | tr -d '"')
 if [ -n "${mesh_to_delete}" ]; then
 echo "Deleting namespace ${mesh_to_delete}" 
-./kubectl delete ns $mesh_to_delete &
+kubectl delete ns $mesh_to_delete &
 sleep 120
-./kubectl get namespace $mesh_to_delete -o json > out.json                          
+kubectl get namespace $mesh_to_delete -o json > out.json                          
 sed -i 's/"kubernetes"//g' ./out.json                                                              
-./kubectl replace --raw "/api/v1/namespaces/${mesh_to_delete}/finalize" -f ./out.json 
+kubectl replace --raw "/api/v1/namespaces/${mesh_to_delete}/finalize" -f ./out.json 
 sleep 120
 oci service-mesh virtual-service-route-table list --all --compartment-id ${compartment_ocid} | jq 
 '.data.items[] | select(."lifecycle-state" == "ACTIVE") | .id' | tr -d '"' > delete.out
