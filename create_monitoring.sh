@@ -10,7 +10,7 @@ sed -i "s/log_object_ocid/${log_object_ocid}/g" logconfig.json
 sed -i "s/mesh_name/${mesh_name}/g" grafana.yaml
 groupList=`echo '{"groupList": ["'${logging_dynamicgroup_ocid}'"]}'`
 oci logging agent-configuration create --compartment-id ${mesh_compartment} --is-enabled true --service-configuration file://logconfig.json --display-name MeshDemoLoggingAgent --description "Custom agent config for ${mesh_name}" --group-association "${groupList}"
-#kubectl delete ns monitoring
+kubectl delete ns monitoring
 kubectl create ns monitoring
 kubectl apply -f prometheus.yaml
 kubectl apply -f grafana.yaml
