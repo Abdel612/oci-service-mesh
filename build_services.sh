@@ -10,10 +10,6 @@ else
     cp instantclient-basic-linux.x64-21.7.0.0.0dbru.zip ./price/
 fi
 
-# Create registry (Optional)
-#oci artifacts container repository create -c ${mesh_compartment} --display-name ${mesh_name}-homesvc
-#oci artifacts container repository create -c ${mesh_compartment} --display-name ${mesh_name}-pricesvc
-
 # BUILD PRICE v1
 if [ -d "./price/Wallet" ]; then
   rm -rf ./price/Wallet
