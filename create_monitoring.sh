@@ -1,7 +1,4 @@
 # ${log_object_ocid} = LOG object ocid # See https://docs.oracle.com/en-us/iaas/Content/service-mesh-tutorials/service-mesh-overview/00-overview.htm
-if [ -z "$1" ]; then
-  exit
-fi
 oci logging agent-configuration list --all --compartment-id ${mesh_compartment} | jq '.data.items[] | select(."lifecycle-state" == "ACTIVE") | .id' | tr -d '"' > delete.out
 while read line; do
     echo "$line"
