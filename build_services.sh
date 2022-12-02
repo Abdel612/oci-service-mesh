@@ -1,6 +1,8 @@
 # $1 = db name
 # $2 = db password
 # $3 = DNS domain name
+# ${mesh_name}
+# ${ocir}
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
   exit
 fi

@@ -1,4 +1,5 @@
 # ${log_object_ocid} = LOG object ocid # See https://docs.oracle.com/en-us/iaas/Content/service-mesh-tutorials/service-mesh-overview/00-overview.htm
+# ${logging_dynamicgroup_ocid}
 sed -i "s/mesh_name/${mesh_name}/g" logconfig.json
 sed -i "s/log_object_ocid/${log_object_ocid}/g" logconfig.json
 sed -i "s/mesh_name/${mesh_name}/g" grafana.yaml
