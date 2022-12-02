@@ -1,4 +1,4 @@
-# $1 = LOG object ocid # See https://docs.oracle.com/en-us/iaas/Content/service-mesh-tutorials/service-mesh-overview/00-overview.htm
+# ${log_object_ocid} = LOG object ocid # See https://docs.oracle.com/en-us/iaas/Content/service-mesh-tutorials/service-mesh-overview/00-overview.htm
 if [ -z "$1" ]; then
   exit
 fi
@@ -9,7 +9,7 @@ while read line; do
 done <delete.out
 sleep 5
 sed -i "s/mesh_name/${mesh_name}/g" logconfig.json
-sed -i "s/log_object_ocid/$1/g" logconfig.json
+sed -i "s/log_object_ocid/${log_object_ocid}/g" logconfig.json
 sed -i "s/mesh_name/${mesh_name}/g" grafana.yaml
 export groupList=`echo '{"groupList": ["'${logging_dynamicgroup_ocid}'"]}'` oci logging agent-configuration create --compartment-id ${compartment_ocid} --is-enabled true --service-configuration file://logconfig.json --display-name MeshDemoLoggingAgent --description "Custom agent config for ${mesh_name}" --group-association "${groupList}"
 #kubectl delete ns monitoring
