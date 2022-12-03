@@ -12,7 +12,7 @@ if [ -n "${dns_compartment}" ]; then
 fi
 name=$1.$2
 
-if [ -z "${zone_created}" ];
+if [ -z "${zone_created}" ]; then
     oci dns zone create -c ${compartment} --name $2 --zone-type 'PRIMARY' --region $3
     export zone_created=true
 fi
