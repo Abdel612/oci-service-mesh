@@ -11,8 +11,7 @@ if [ -n "${dns_compartment}" ]; then
   compartment=${dns_compartment}
 fi
 name=$1.$2
-zone=$(oci dns record domain get --domain ${name} --zone-name-or-id $2 -c 
-${compartment} --region $3 | jq '.data.items[] | select(."domain" == "'${name}'") | .domain ' | tr -d '"')
+zone=$(oci dns record domain get --domain ${name} --zone-name-or-id $2 -c ${compartment} --region $3 | jq '.data.items[] | select(."domain" == "'${name}'") | .domain ' | tr -d '"')
 echo "zone: $zone"
 echo "name: $name"
 if [ "$zone" != "${name}" ]; then
