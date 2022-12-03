@@ -34,7 +34,7 @@ export docker_password='&lt;YOUR ACCESS TOKEN HERE&gt;'
 
 ## Create Autonomous Database using kubectl (OSOK)
 
-Run: <code>sh create_atp.sh pricemeshdb RockenRoll123#!</code>
+Run: <code>sh create_atp.sh pricemeshdb RockenRoll321#!</code>
 
 <p>
 Download <a href="https://download.oracle.com/otn_software/linux/instantclient/217000/instantclient-basic-linux.x64-21.7.0.0.0dbru.zip">https://download.oracle.com/otn_software/linux/instantclient/217000/instantclient-basic-linux.x64-21.7.0.0.0dbru.zip</a> to this project's root directory
@@ -49,7 +49,7 @@ oci artifacts container repository create -c ${mesh_compartment} --display-name 
 
 ## Build services and push to OCIR
 
-Run <code>sh build_services.sh pricemeshdb RockenRoll123#! &lt;YOUR MESH DNS NAME HERE&gt;</code>
+Run <code>sh build_services.sh pricemeshdb RockenRoll321#! &lt;YOUR MESH DNS NAME HERE&gt;</code>
 
 ## Deploy service to OKE
 
@@ -64,7 +64,7 @@ kubectl get services -n ${mesh_name}
 
 Run:
 <pre>
-sh meshify_app.sh meshdemo.ivandelic.com
+sh meshify_app.sh &lt;YOUR MESH DNS NAME HERE&gt;
 kubectl get pods -n ${mesh_name} --watch
 kubectl get services -n ${mesh_name}
 </pre>
