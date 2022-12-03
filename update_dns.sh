@@ -2,13 +2,13 @@
 # $2 = DNS domain name
 # $3 = IP addr
 # $4 = region
-# $5 = DNS compartment OPTIONAL
+# ${dns_compartment}  OPTIONAL
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ] || [ -z "$4" ]; then
   exit
 fi
 compartment=${mesh_compartment}
-if [ -n "$5" ]; then
-  compartment=$5
+if [ -n "${dns_compartment}" ]; then
+  compartment=${dns_compartment}
 fi
 name=$1.$2
 zone=$(oci dns record domain get --domain ${name} --zone-name-or-id $2 -c 
