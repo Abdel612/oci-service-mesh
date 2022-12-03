@@ -12,6 +12,7 @@ if [ -n "${dns_compartment}" ]; then
 fi
 name=$1.$2
 oci dns zone create -c ${compartment} --name $2 --zone-type 'PRIMARY' --region $3
-export items=`echo '[{ "domain": "'${name}'","is-protected": false,"rdata": "'$4'","rrset-version": "2","rtype": "A","ttl": 1800 }]'`
-echo $items
-oci dns record domain update --domain ${name} --zone-name-or-id ${dns_domain} -c ${compartment} --items="${items}" --region $3 --force
+
+
+export items=`echo '[{"domain": "'${name}'","is-protected": false,"rdata": "'$4'","rrset-version": "2","rtype": "A","ttl": 1800 }]'`
+oci dns record domain update --domain ${name} --zone-name-or-id $2 -c ${compartment} --items="${items}" --region $3 --force
