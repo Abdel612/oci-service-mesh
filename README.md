@@ -57,7 +57,7 @@ oci artifacts container repository create -c ${mesh_compartment} --display-name 
 </pre>
 
 <p>
-Use <code>--is-public</code> if you want to use <i>public</i> repos.
+Additonally use <code>--is-public</code> flag in the statements above if you want to use <i>public</i> repos.
 
 ## Build services and push to OCIR
 
