@@ -170,3 +170,7 @@ Access "price admin" of <code>price</code> microservice from the <i>Admin</i> -l
 Admin <b>user</b> is <code>priceadmin</code> and <b>password</b> is <code>&lt;YOUR ADB PASSWORD&gt;</code> e.g. 
 <code>RockenRoll321#!</code>. Edit prices and options and then save and reload the homepage to see the values on Homepage chancing.
 
+## See on Youtube
+
+<a href="https://www.youtube.com/watch?v=VW-NYjpEQPk">https://www.youtube.com/watch?v=VW-NYjpEQPk</a>
+
