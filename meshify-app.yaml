@@ -152,7 +152,7 @@ spec:
 kind: IngressGateway
 apiVersion: servicemesh.oci.oracle.com/v1beta1
 metadata:
-  name: meshdemo-ingress-gateway
+  name: mesh-ingress-gateway
   namespace: mesh_name
 spec:
   compartmentId: mesh_compartment
@@ -160,7 +160,7 @@ spec:
     ref:
       name: mesh_name
   hosts:
-    - name: meshdemoHost
+    - name: meshHost
       hostnames:
         - home.mesh_dns_domain
         - home.mesh_dns_domain:3000
@@ -175,12 +175,12 @@ spec:
 apiVersion: servicemesh.oci.oracle.com/v1beta1
 kind: IngressGatewayDeployment
 metadata:
-  name: meshdemo-ingress-gateway-deployment
+  name: mesh-ingress-gateway-deployment
   namespace: mesh_name
 spec:
   ingressGateway:
     ref:
-      name: meshdemo-ingress-gateway
+      name: mesh-ingress-gateway
   deployment:
     autoscaling:
       minPods: 1
@@ -195,13 +195,13 @@ spec:
 apiVersion: servicemesh.oci.oracle.com/v1beta1
 kind: IngressGatewayRouteTable
 metadata:
-  name: meshdemo-ingress-gateway-route-table
+  name: mesh-ingress-gateway-route-table
   namespace: mesh_name
 spec:
   compartmentId: mesh_compartment
   ingressGateway:
     ref:
-      name: meshdemo-ingress-gateway
+      name: mesh-ingress-gateway
   routeRules:
     - httpRoute:
         path: /
@@ -214,12 +214,12 @@ spec:
             weight: 100
             port: 3000
         ingressGatewayHost:
-          name: meshdemoHost
+          name: meshHost
 ---
 kind: IngressGateway
 apiVersion: servicemesh.oci.oracle.com/v1beta1
 metadata:
-  name: meshdemo-admin-ingress-gateway
+  name: mesh-admin-ingress-gateway
   namespace: mesh_name
 spec:
   compartmentId: mesh_compartment
@@ -227,7 +227,7 @@ spec:
     ref:
       name: mesh_name
   hosts:
-    - name: meshdemoAdminHost
+    - name: meshAdminHost
       hostnames:
         - admin.mesh_dns_domain
         - admin.mesh_dns_domain:3010
@@ -242,12 +242,12 @@ spec:
 apiVersion: servicemesh.oci.oracle.com/v1beta1
 kind: IngressGatewayDeployment
 metadata:
-  name: meshdemo-admin-ingress-gateway-deployment
+  name: mesh-admin-ingress-gateway-deployment
   namespace: mesh_name
 spec:
   ingressGateway:
     ref:
-      name: meshdemo-admin-ingress-gateway
+      name: mesh-admin-ingress-gateway
   deployment:
     autoscaling:
       minPods: 1
@@ -262,13 +262,13 @@ spec:
 apiVersion: servicemesh.oci.oracle.com/v1beta1
 kind: IngressGatewayRouteTable
 metadata:
-  name: meshdemo-admin-ingress-gateway-route-table
+  name: mesh-admin-ingress-gateway-route-table
   namespace: mesh_name
 spec:
   compartmentId: mesh_compartment
   ingressGateway:
     ref:
-      name: meshdemo-admin-ingress-gateway
+      name: mesh-admin-ingress-gateway
   routeRules:
     - httpRoute:
         path: /
@@ -281,12 +281,12 @@ spec:
             weight: 100
             port: 3010
         ingressGatewayHost:
-          name: meshdemoAdminHost
+          name: meshAdminHost
 ---
 kind: AccessPolicy
 apiVersion: servicemesh.oci.oracle.com/v1beta1
 metadata:
-  name: meshdemo-policy
+  name: mesh-policy
   namespace: mesh_name
 spec:
   mesh:
@@ -298,7 +298,7 @@ spec:
       source:
         ingressGateway:
           ref:
-            name: meshdemo-ingress-gateway
+            name: mesh-ingress-gateway
       destination:
         virtualService:
           ref:
@@ -327,7 +327,7 @@ spec:
       source:
         ingressGateway:
           ref:
-            name: meshdemo-admin-ingress-gateway
+            name: mesh-admin-ingress-gateway
       destination:
         virtualService:
           ref:
