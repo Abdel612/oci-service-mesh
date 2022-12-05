@@ -42,9 +42,6 @@ This will create <code>ocirsecret</code> for OKE to access private OCIR repos. A
 
 Run: <code>sh create_atp.sh pricemeshdb RockenRoll321#!</code>
 
-<p>
-Download <a href="https://download.oracle.com/otn_software/linux/instantclient/217000/instantclient-basic-linux.x64-21.7.0.0.0dbru.zip">https://download.oracle.com/otn_software/linux/instantclient/217000/instantclient-basic-linux.x64-21.7.0.0.0dbru.zip</a> to this project's root directory
-
 ## Create registry (Optional) using oci cli or Cloud UI
 
 Run
@@ -58,6 +55,17 @@ Use <code>--is-public</code> if you want to use <i>public</i> repos.
 
 ## Build services and push to OCIR
 
+Build will build and push 2 microservices, <code>home</code> and <code>price</code>.
+
+<p>
+<code>home</code> is the application's Homepage has two versions, <code>v1</code> and <code>v2</code> that will be load-balanced by the Mesh with <b>20/80</b> <code>rule</code> later. <code>v1</code> is a static homepage and <code>v2</code> is dynamic that will then access prices from Autonomous Database using <code>price</code> service with JSON.
+
+<p>
+Before building services download <a href="https://download.oracle.com/otn_software/linux/instantclient/217000/instantclient-basic-linux.x64-21.7.0.0.0dbru.zip">https://download.oracle.com/otn_software/linux/instantclient/217000/instantclient-basic-linux.x64-21.7.0.0.0dbru.zip</a> to this project's root directory.
+<p>
+This is needed for the NodeJS <code>oracledb</code> library to access the Autonomous database from the <code>price</code> microservice.
+
+<p>
 Run <code>sh build_services.sh pricemeshdb RockenRoll321#!</code>
 
 ## Deploy service to OKE
