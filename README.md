@@ -68,6 +68,10 @@ Build will build and push 2 microservices, <code>home</code> and <code>price</co
 
 <p>
 Before building services download <a href="https://download.oracle.com/otn_software/linux/instantclient/217000/instantclient-basic-linux.x64-21.7.0.0.0dbru.zip">https://download.oracle.com/otn_software/linux/instantclient/217000/instantclient-basic-linux.x64-21.7.0.0.0dbru.zip</a> to this project's root directory.
+
+<p>
+e.g. <code>wget https://download.oracle.com/otn_software/linux/instantclient/217000/instantclient-basic-linux.x64-21.7.0.0.0dbru.zip</code>
+    
 <p>
 This is needed for the NodeJS <code>oracledb</code> library to access the Autonomous database from the <code>price</code> microservice.
 
