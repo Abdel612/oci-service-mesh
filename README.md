@@ -40,7 +40,7 @@ This will create <code>ocirsecret</code> for OKE to access private OCIR repos. A
     
 ## Create Autonomous Database using kubectl (with OSOK)
 
-Run <code>sh create_atp.sh pricemeshdb &lt;YOUR ADP PASSWORD HERE&gt;</code>
+Run <code>sh create_atp.sh pricemeshdb &lt;YOUR ADB PASSWORD HERE&gt;</code>
 
 <p>
 e.g. <code>sh create_atp.sh pricemeshdb RockenRoll123#!</code>
@@ -76,7 +76,10 @@ e.g. <code>wget https://download.oracle.com/otn_software/linux/instantclient/217
 This is needed for the NodeJS <code>oracledb</code> library to access the Autonomous database from the <code>price</code> microservice.
 
 <p>
-Run <code>sh build_services.sh pricemeshdb RockenRoll321#!</code>
+Run <code>sh build_services.sh pricemeshdb &lt;YOUR ADB PASSWORD HERE&gt;</code>
+    
+<p>
+e.g. <code>sh build_services.sh pricemeshdb RockenRoll321#!</code>
 
 ## Deploy services to OKE using kubectl
 
