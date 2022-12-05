@@ -58,7 +58,7 @@ Use <code>--is-public</code> if you want to use <i>public</i> repos.
 Build will build and push 2 microservices, <code>home</code> and <code>price</code>.
 
 <p>
-<code>home</code> is the application's Homepage that has two versions, <code>v1</code> and <code>v2</code> that will be load-balanced by the Mesh with <b>20/80</b> <code>rule</code> later. <code>v1</code> is a static homepage and <code>v2</code> is dynamic that will then access prices from Autonomous Database using <code>price</code> service with JSON.
+<code>home</code> is the application's Homepage that has two versions, <code>v1</code> and <code>v2</code> that will be load balanced by the Mesh with <b>20/80</b> <code>rule</code> later. <code>v1</code> is a static homepage and <code>v2</code> is  a dynamic one that will then access prices from Autonomous Database using <code>price</code> service with JSON.
 
 <p>
 Before building services download <a href="https://download.oracle.com/otn_software/linux/instantclient/217000/instantclient-basic-linux.x64-21.7.0.0.0dbru.zip">https://download.oracle.com/otn_software/linux/instantclient/217000/instantclient-basic-linux.x64-21.7.0.0.0dbru.zip</a> to this project's root directory.
