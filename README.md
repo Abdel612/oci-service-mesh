@@ -5,7 +5,7 @@
 Have Oracle Oracle Kubernetes Engine (OKE) cluster up and running with <code>kubectl</code> access from OCI Cloud shell
 
 <p>
-Install OSOK, see <a href="https://github.com/oracle/oci-service-operator/blob/main/docs/installation.md#install-operator-sdk">
+Install Oracle Services Operator for Kubernetes (OSOK), see <a href="https://github.com/oracle/oci-service-operator/blob/main/docs/installation.md#install-operator-sdk">
 https://github.com/oracle/oci-service-operator/blob/main/docs/installation.md#install-operator-sdk</a>
 
 <p>
