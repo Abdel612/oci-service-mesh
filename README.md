@@ -106,9 +106,9 @@ export logging_dynamicgroup_ocid=ocid1.dynamicgroup.oc1..
 Run <code>sh create_monitoring.sh</code>
 
 <p>
-Run: <code>kubectl get services -n monitoring --watch</code>
+Minitor services being created <code>kubectl get services -n monitoring --watch</code>
 <p>
-Once the Grafana <code>EXTERNAL-IP</code> shows up, copy it and open in browser to monitor the mesh using Grafana
+Once the Grafana <code>EXTERNAL-IP</code> shows up, copy it and open in browser to monitor the mesh using Grafana.
 
 ## Create/Update DNS (Optional) using oci cli
 
@@ -130,4 +130,4 @@ sh update_dns.sh admin eu-frankfurt-1 <i>mesh-ingress-admin-ip</i>
 </pre>
 
 <p>
-Access the <code>home.&lt;YOUR MESH DNS DOMAIN HERE&gt;</code> from browser
+Access the <code>home.&lt;YOUR MESH DNS DOMAIN HERE&gt;</code> from browser.
