@@ -12,7 +12,7 @@ https://github.com/oracle/oci-service-operator/blob/main/docs/installation.md#in
 Open Cloud shell from OCI Console
     
 <p>
-Run: 
+Run
 <pre>
 git clone https://github.com/mikarinneoracle/oci-service-mesh.git
 cd oci-service-mesh
@@ -20,7 +20,7 @@ cd oci-service-mesh
 
 ## Setup environment
 
-Run:
+Run
 <pre>
 export mesh_name=pricing
 export mesh_compartment=ocid1.compartment.oc1..
