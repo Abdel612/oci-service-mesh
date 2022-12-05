@@ -154,7 +154,8 @@ Alternatively open your local <code>/etc/hosts</code> file and add the following
 </pre>
 
 <p>
-Access the <code>home.&lt;YOUR MESH DNS DOMAIN HERE&gt;</code> from browser.
+Access the <code>home.&lt;YOUR MESH DNS DOMAIN HERE&gt;</code> from browser. Reload the page multiple times to see
+traffic split happening by the 20/80 rule to the homepage. View Grafana for the same.
 
 <p>
 <p>
