@@ -2,6 +2,10 @@
 
 ## Create OCI Service Mesh for VueJS SPA, NodeJS microservices and Autonomous Database using OCI Cloud Shell
 
+<p>
+<img src="service-mesh-atp.png" width="800" />
+
+<p>
 Have Oracle Oracle Kubernetes Engine (OKE) cluster up and running with <code>kubectl</code> access from OCI Cloud shell
 
 <p>
