@@ -40,7 +40,13 @@ This will create <code>ocirsecret</code> for OKE to access private OCIR repos. A
     
 ## Create Autonomous Database using kubectl (with OSOK)
 
-Run: <code>sh create_atp.sh pricemeshdb RockenRoll321#!</code>
+Run <code>sh create_atp.sh pricemeshdb &lt;YOUR ADP PASSWORD HERE&gt;</code>
+
+<p>
+e.g. <code>sh create_atp.sh pricemeshdb RockenRoll123#!</code>
+
+<p>
+<code>&lt;YOUR ADP PASSWORD HERE&gt;</code> needs to be a valid Autonomous database password, see <a href="https://docs.public.oneportal.content.oci.oraclecloud.com/en-us/iaas/exadata/doc/adb-managing-adb.html#GUID-F6EF6907-3694-4655-AEA1-2691ADFC8E39">for details</a>.
 
 ## Create registry (Optional) using oci cli or Cloud UI
 
