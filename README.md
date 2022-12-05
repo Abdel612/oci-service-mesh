@@ -151,3 +151,10 @@ Alternatively open your local <code>/etc/hosts</code> file and add the following
 
 <p>
 Access the <code>home.&lt;YOUR MESH DNS DOMAIN HERE&gt;</code> from browser.
+
+<p>
+<p>
+Access "price admin" of <code>price</code> microservice from the <i>Admin</i> -link on the homepage.
+Admin <b>user</b> is <code>priceadmin</code> and <b>password</b> is <code>&lt;YOUR ADB PASSWORD&gt;</code>
+Edit prices and options and then save and reload the homepage to see the values on Homepage chancing.
+
