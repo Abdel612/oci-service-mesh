@@ -30,13 +30,13 @@ export dns_domain=&lt;YOUR MESH DNS DOMAIN HERE&gt; e.g. mymesh.mysite.com
 </pre>
 
 <p>
-To user private OCIR images run (Optional). This will create <code>ocirsecret</code> for OKE to access private OCIR repos.
+To use <i>private</i> repos for OCIR images run (Optional). This will create <code>ocirsecret</code> for OKE to access private OCIR repos.
 <pre>
 export docker_username='&lt;YOUR TENANCY NAME HERE&gt;/oracleidentitycloudservice/&lt;YOUR USER NAME HERE&gt;'
 export docker_password='&lt;YOUR ACCESS TOKEN HERE&gt;'
 </pre>
 <p>
-Alternatively can use public repos for images 
+Alternatively can use <i>public</i> repos for images.
     
 ## Create Autonomous Database using kubectl (OSOK)
 
