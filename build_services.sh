@@ -1,9 +1,9 @@
 # $1 = db name
 # $2 = db password
-# $3 = DNS domain name
 # ${mesh_name}
+# ${dns_domain} = DNS domain name
 # ${ocir}
-if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
+if [ -z "$1" ] || [ -z "$2" ] || [ -z "${mesh_name}" ] || [ -z "${dns_domain}" ]; then
   exit
 fi
 if [ ! -f "instantclient-basic-linux.x64-21.7.0.0.0dbru.zip" ]; then
@@ -46,7 +46,7 @@ cp ./html/pricing/index_static.html ./html/pricing/index.html
 docker build -t ${ocir}/${mesh_name}-homesvc:v1 .
 docker push ${ocir}/${mesh_name}-homesvc:v1
 # BUILD HOME v2 - DYNAMIC
-export admin_link=admin.$3
+export admin_link=admin.${dns_domain}
 sed -i "s|admin_link|${admin_link}|g" ./html/pricing/index_dynamic.html
 cp ./html/pricing/index_dynamic.html ./html/pricing/index.html
 docker build -t ${ocir}/${mesh_name}-homesvc:v2 .
