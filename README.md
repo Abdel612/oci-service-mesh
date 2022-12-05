@@ -18,7 +18,7 @@ git clone https://github.com/mikarinneoracle/oci-service-mesh.git
 cd oci-service-mesh
 </pre>
 
-## Create OCI Service Mesh with sample services using kubectl
+## Setup environment
 
 Run:
 <pre>
@@ -38,7 +38,7 @@ export docker_password='&lt;YOUR ACCESS TOKEN HERE&gt;'
 <p>
 This will create <code>ocirsecret</code> for OKE to access private OCIR repos. Alternatively can use <i>public</i> repos for images.
     
-## Create Autonomous Database using kubectl (OSOK)
+## Create Autonomous Database using kubectl (with OSOK)
 
 Run: <code>sh create_atp.sh pricemeshdb RockenRoll321#!</code>
 
@@ -68,7 +68,7 @@ This is needed for the NodeJS <code>oracledb</code> library to access the Autono
 <p>
 Run <code>sh build_services.sh pricemeshdb RockenRoll321#!</code>
 
-## Deploy service to OKE
+## Deploy services to OKE using kubectl
 
 Run <code>sh deploy_services.sh</code>
 
@@ -78,7 +78,7 @@ View the pods created <code>kubectl get pods -n ${mesh_name}</code>
 <p>
 View services created <code>kubectl get services -n ${mesh_name}</code>
 
-## Create Service Mesh using the built and deployed services
+## Create Service Mesh using the built and deployed services using kubectl
 
 Run <code>sh meshify_app.sh</code>
 
