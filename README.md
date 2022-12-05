@@ -43,7 +43,7 @@ This will create <code>ocirsecret</code> for OKE to access private OCIR repos. A
 Run <code>sh create_atp.sh pricemeshdb &lt;YOUR ADB PASSWORD HERE&gt;</code>
 
 <p>
-e.g. <code>sh create_atp.sh pricemeshdb RockenRoll123#!</code>
+e.g. <code>sh create_atp.sh pricemeshdb RockenRoll321#!</code>
 
 <p>
 <code>&lt;YOUR ADB PASSWORD HERE&gt;</code> needs to be a valid Autonomous database password, see <a href="https://docs.public.oneportal.content.oci.oraclecloud.com/en-us/iaas/exadata/doc/adb-managing-adb.html#GUID-F6EF6907-3694-4655-AEA1-2691ADFC8E39">here for details</a>.
@@ -156,5 +156,5 @@ Access the <code>home.&lt;YOUR MESH DNS DOMAIN HERE&gt;</code> from browser.
 <p>
 Access "price admin" of <code>price</code> microservice from the <i>Admin</i> -link on the homepage.
 Admin <b>user</b> is <code>priceadmin</code> and <b>password</b> is <code>&lt;YOUR ADB PASSWORD&gt;</code> e.g. 
-<code>RockenRoll123#!</code>. Edit prices and options and then save and reload the homepage to see the values on Homepage chancing.
+<code>RockenRoll321#!</code>. Edit prices and options and then save and reload the homepage to see the values on Homepage chancing.
 
