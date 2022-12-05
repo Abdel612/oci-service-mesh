@@ -110,7 +110,7 @@ Minitor services being created <code>kubectl get services -n monitoring --watch<
 <p>
 Once the Grafana <code>EXTERNAL-IP</code> shows up, copy it and open in browser to monitor the mesh using Grafana.
 
-## Create/Update DNS (Optional) using oci cli
+## Create/Update DNS using oci cli (Optional)
 
 By default DNS zone will run in the same compartment as the mesh. However, if you want to specify another compartment for the DSN, run
 <pre>
@@ -118,7 +118,6 @@ export dns_compartment=ocid1.compartment.oc1..
 </pre>
 
 <p>
-
 Pick up the LodBalancer <code>EXTERNAL-IP</code> addresses and them to DNS Zone by running
 <code>kubectl get services -n ${mesh_name}</code>
 
@@ -127,6 +126,13 @@ Then create/update DNS by running
 <pre>
 sh update_dns.sh home eu-frankfurt-1 <i>mesh-ingress-ip</i>
 sh update_dns.sh admin eu-frankfurt-1 <i>mesh-ingress-admin-ip</i>
+</pre>
+
+<p>
+Alternatively open your local <code>/etc/hosts</code> and add the following to acesss the mesh (example)
+<pre>
+158.101.210.63 home.mymesh.mysite.com
+158.101.211.252 admin.mymesh.mysite.com
 </pre>
 
 <p>
