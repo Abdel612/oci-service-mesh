@@ -127,8 +127,13 @@ Minitor services being created <code>kubectl get services -n monitoring --watch<
 <p>
 Once the Grafana <code>EXTERNAL-IP</code> shows up, copy it and open in browser to monitor the mesh using Grafana.
 
-## Create/Update DNS using oci cli (Optional)
+## Access mesh and the NodeJS microservices running in it
 
+### Create/Update DNS using oci cli
+
+<i>Note</i>: Accessing mesh via OCI DNS requires a valid registered domain in order to be functional. Use the local configuration option instead if such is not available.
+
+<p>
 By default DNS zone will run in the same compartment as the mesh. However, if you want to specify another compartment for the DSN, run
 <pre>
 export dns_compartment=ocid1.compartment.oc1..
@@ -146,7 +151,8 @@ sh update_dns.sh home eu-frankfurt-1 <i>mesh-ingress-ip</i>
 sh update_dns.sh admin eu-frankfurt-1 <i>mesh-ingress-admin-ip</i>
 </pre>
 
-<p>
+### Use local config instead of OCI DNS
+
 Alternatively open your local <code>/etc/hosts</code> file and add the following to acesss the mesh (example)
 <pre>
 158.101.210.63 home.mymesh.mysite.com
