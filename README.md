@@ -172,5 +172,5 @@ Admin <b>user</b> is <code>priceadmin</code> and <b>password</b> is <code>&lt;YO
 
 ## See on Youtube
 
-<a href=""></a>
+<a href="https://www.youtube.com/watch?v=_J3YhUDN9KM">https://www.youtube.com/watch?v=_J3YhUDN9KM</a>
 
