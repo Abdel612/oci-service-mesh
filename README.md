@@ -119,6 +119,7 @@ export dns_compartment=ocid1.compartment.oc1..
 
 <p>
 Pick up the LodBalancer <code>EXTERNAL-IP</code> addresses and them to DNS Zone by running
+<p>
 <code>kubectl get services -n ${mesh_name}</code>
 
 <p>
@@ -129,7 +130,7 @@ sh update_dns.sh admin eu-frankfurt-1 <i>mesh-ingress-admin-ip</i>
 </pre>
 
 <p>
-Alternatively open your local <code>/etc/hosts</code> and add the following to acesss the mesh (example)
+Alternatively open your local <code>/etc/hosts</code> file and add the following to acesss the mesh (example)
 <pre>
 158.101.210.63 home.mymesh.mysite.com
 158.101.211.252 admin.mymesh.mysite.com
