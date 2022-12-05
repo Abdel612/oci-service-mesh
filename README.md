@@ -1,8 +1,8 @@
 # OCI Service Mesh
 
-## Create OCI Service Mesh for SPA and Autonomous Database using OCI Cloud Shell
+## Create OCI Service Mesh for VueJS SPA, NodeJS microservices and Autonomous Database using OCI Cloud Shell
 
-Have Oracle Kubernetes Engine cluster up and running with <code>kubectl</code> access from Cloud shell
+Have Oracle Oracle Kubernetes Engine (OKE) cluster up and running with <code>kubectl</code> access from OCI Cloud shell
 
 <p>
 Install OSOK, see <a href="https://github.com/oracle/oci-service-operator/blob/main/docs/installation.md#install-operator-sdk">
