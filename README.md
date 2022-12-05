@@ -9,7 +9,7 @@ Install Oracle Services Operator for Kubernetes (OSOK), see <a href="https://git
 https://github.com/oracle/oci-service-operator/blob/main/docs/installation.md#install-operator-sdk</a>
 
 <p>
-Open Cloud shell from OCI Console.
+Open Cloud shell from OCI Console
     
 <p>
 Run: 
