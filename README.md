@@ -30,12 +30,14 @@ export dns_domain=&lt;YOUR MESH DNS DOMAIN HERE&gt; e.g. mymesh.mysite.com
 </pre>
 
 <p>
-To user private OCIR images run (Optional):
+To user private OCIR images run (Optional). This will create <code>ocirsecret</code> for OKE to access private OCIR repos.
 <pre>
 export docker_username='&lt;YOUR TENANCY NAME HERE&gt;/oracleidentitycloudservice/&lt;YOUR USER NAME HERE&gt;'
 export docker_password='&lt;YOUR ACCESS TOKEN HERE&gt;'
 </pre>
-
+<p>
+Alternatively can use public repos for images 
+    
 ## Create Autonomous Database using kubectl (OSOK)
 
 Run: <code>sh create_atp.sh pricemeshdb RockenRoll321#!</code>
@@ -50,6 +52,9 @@ Run
 oci artifacts container repository create -c ${mesh_compartment} --display-name ${mesh_name}-homesvc
 oci artifacts container repository create -c ${mesh_compartment} --display-name ${mesh_name}-pricesvc
 </pre>
+
+<p>
+Use <code>--is-public</code> if you want to use <i>public</i> repos.
 
 ## Build services and push to OCIR
 
