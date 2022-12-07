@@ -164,8 +164,8 @@ sh update_dns.sh admin &lt;YOUR REGION HERE&gt; <i>mesh-ingress-admin-ip</i>
 <p>
 e.g.
 <pre>
-sh update_dns.sh home eu-amsterdam-1 192.80.100.40
-sh update_dns.sh admin eu-amsterdam-1 192.200.80.160
+sh update_dns.sh home eu-amsterdam-1 158.101.210.63
+sh update_dns.sh admin eu-amsterdam-1 158.101.211.252
 </pre>
 
 ### Use local config instead of OCI DNS
