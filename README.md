@@ -29,7 +29,7 @@ Run
 export mesh_name=pricing
 export mesh_compartment=ocid1.compartment.oc1..
 export ca_ocid=ocid1.certificateauthority.oc1.eu-amsterdam-1.amaaaa...
-export ocir=&lt;YOUR REGION HERE&gt;/&lt;YOUR TENANCY NAME HERE&gt; e.g. ams.ocir.io/frsxwtjslf75
+export ocir=&lt;YOUR REGION OCIR HERE&gt;/&lt;YOUR TENANCY NAME HERE&gt; e.g. ams.ocir.io/frsxwtjslf75
 export dns_domain=&lt;YOUR MESH DNS DOMAIN HERE&gt; e.g. mymesh.mysite.com
 </pre>
 
@@ -37,7 +37,7 @@ export dns_domain=&lt;YOUR MESH DNS DOMAIN HERE&gt; e.g. mymesh.mysite.com
 Check out mesh documentation for <a href="https://docs.oracle.com/en-us/iaas/Content/service-mesh/ovr-getting-started-osok.htm#service-mesh-getting-install-osok">setting up the CA</a>.
 
 <p>
-<i>Note</i>: Run Cloud shell in the same region as the <code>&lt;YOUR REGION HERE&gt;</code> above.
+<i>Note</i>: Run Cloud shell in the same region as the <code>&lt;YOUR REGION OCIR HERE&gt;</code> above.
 
 <p>
 To use <i>private</i> repos for OCIR images run
@@ -130,7 +130,7 @@ export logging_dynamicgroup_ocid=ocid1.dynamicgroup.oc1..
 Run <code>sh create_monitoring.sh</code>
 
 <p>
-<i>Note</i>: <code>Log object</code> above is expected to run in the same region as the <code>&lt;YOUR REGION HERE&gt;</code> earlier.
+<i>Note</i>: <code>Log object</code> above is expected to run in the same region you used in earlier steps.
 
 <p>
 Monitor services being created <code>kubectl get services -n monitoring --watch</code>
