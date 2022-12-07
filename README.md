@@ -34,6 +34,9 @@ export dns_domain=&lt;YOUR MESH DNS DOMAIN HERE&gt; e.g. mymesh.mysite.com
 </pre>
 
 <p>
+Check out mesh documentation for <a href="https://docs.oracle.com/en-us/iaas/Content/service-mesh/ovr-getting-started-osok.htm#service-mesh-getting-install-osok">setting up the CA</a>.
+
+<p>
 <i>Note</i>: Run Cloud shell in the same region as the <code>&lt;YOUR REGION HERE&gt;</code> above.
 
 <p>
@@ -127,10 +130,10 @@ export logging_dynamicgroup_ocid=ocid1.dynamicgroup.oc1..
 Run <code>sh create_monitoring.sh</code>
 
 <p>
-<i>Note</i>: <code>Log object</code> above is expected to run in the region as the <code>&lt;YOUR REGION HERE&gt;</code> earlier.
+<i>Note</i>: <code>Log object</code> above is expected to run in the same region as the <code>&lt;YOUR REGION HERE&gt;</code> earlier.
 
 <p>
-Minitor services being created <code>kubectl get services -n monitoring --watch</code>
+Monitor services being created <code>kubectl get services -n monitoring --watch</code>
 <p>
 Once the Grafana <code>EXTERNAL-IP</code> shows up, copy it and open in browser to monitor the mesh using Grafana.
 
@@ -154,16 +157,23 @@ Pick up the LodBalancer <code>EXTERNAL-IP</code> addresses and them to DNS Zone 
 <p>
 Then create/update DNS by running
 <pre>
-sh update_dns.sh home eu-frankfurt-1 <i>mesh-ingress-ip</i>
-sh update_dns.sh admin eu-frankfurt-1 <i>mesh-ingress-admin-ip</i>
+sh update_dns.sh home &lt;YOUR REGION HERE&gt; <i>mesh-ingress-ip</i>
+sh update_dns.sh admin &lt;YOUR REGION HERE&gt; <i>mesh-ingress-admin-ip</i>
+</pre>
+
+<p>
+e.g.
+<pre>
+sh update_dns.sh home eu-amsterdam-1 192.80.100.40
+sh update_dns.sh admin eu-amsterdam-1 192.200.80.160
 </pre>
 
 ### Use local config instead of OCI DNS
 
 Alternatively open your local <code>/etc/hosts</code> file and add the following to acesss the mesh (example)
 <pre>
-158.101.210.63 home.mymesh.mysite.com
-158.101.211.252 admin.mymesh.mysite.com
+158.101.210.63 home.price.mysite.com
+158.101.211.252 admin.price.mysite.com
 </pre>
 
 ## Testing
