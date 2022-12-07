@@ -172,8 +172,8 @@ sh update_dns.sh admin eu-amsterdam-1 158.101.211.252
 
 Alternatively open your local <code>/etc/hosts</code> file and add the following to acesss the mesh (example)
 <pre>
-158.101.210.63 home.mysite.mysite.com
-158.101.211.252 admin.mysite.mysite.com
+158.101.210.63 home.mymesh.mysite.com
+158.101.211.252 admin.mymesh.mysite.com
 </pre>
 
 ## Testing
