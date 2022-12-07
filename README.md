@@ -46,7 +46,7 @@ export docker_username='&lt;YOUR TENANCY NAME HERE&gt;/oracleidentitycloudservic
 export docker_password='&lt;YOUR ACCESS TOKEN HERE&gt;'
 </pre>
 <p>
-This will create <code>ocirsecret</code> for OKE to access private OCIR repos. Alternatively can use <i>public</i> repos for images.
+This will create <code>ocirsecret</code> for OKE to access private OCIR repos. Alternatively can use <i>public</i> repos for images but I recommend this only for quick testing this and then deleting all resources including the app images once done.
     
 ## Create Autonomous Database using kubectl (with OSOK)
 
