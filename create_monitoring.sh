@@ -14,4 +14,4 @@ kubectl create ns monitoring
 kubectl apply -f prometheus.yaml
 kubectl apply -f grafana.yaml
 mv grafana.yaml.copy grafana.yaml
-cp logconfig.json.copy logconfig.json
+mv logconfig.json.copy logconfig.json
