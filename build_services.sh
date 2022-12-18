@@ -40,7 +40,7 @@ sed -i "s/atp_pwd/$2/g" ./price.js
 sed -i "s/admin_pwd/$2/g" ./price.js
 docker build -t ${ocir}/${mesh_name}-pricesvc:v1 .
 docker push ${ocir}/${mesh_name}-pricesvc:v1
-cp price.js.copy price.js
+mv price.js.copy price.js
 cd ..
 # BUILD HOME v1 - STATIC
 cd ./home/
