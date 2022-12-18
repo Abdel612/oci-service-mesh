@@ -202,7 +202,7 @@ Then run
 
 <pre> sh update_home_routing.sh 20 80</pre>
 
-Wait for a while and see traffic going back to both static (v1) and dynamic (v2) homepage.
+Wait for a while and see traffic going back to both static (v1) and dynamic (v2) homepage with the 20/80 split.
 
 <p>
 See the traffic split to change in Grafana:
