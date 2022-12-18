@@ -182,10 +182,33 @@ Access the <code>home.&lt;YOUR MESH DNS DOMAIN HERE&gt;</code> from browser. Rel
 traffic split happening by the 20/80 rule to the homepage. View Grafana for the same.
 
 <p>
-<p>
 Access "price admin" of <code>price</code> microservice from the <i>Admin</i> -link on the homepage.
 Admin <b>user</b> is <code>priceadmin</code> and <b>password</b> is <code>&lt;YOUR ADB PASSWORD&gt;</code> e.g. 
 <code>RockenRoll321#!</code>. Edit prices and options and then save and reload the homepage to see the values on Homepage chancing.
+   
+### Home routing testing
+
+To test changes in home routing first run
+
+<pre> sh update_home_routing.sh 100 0</pre>
+
+Wait for a while and see traffic going to static homepage (v1) only. You can also view this from the mesh config on Cloud UI.
+
+<p>
+<i>Note</i>: The <i>sum</i> of the given routing values needs to be <b>100</b>
+
+<p>
+Then run
+
+<pre> sh update_home_routing.sh 20 80</pre>
+
+Wait for a while and see traffic going back to both static (v1) and dynamic (v2) homepage.
+
+<p>
+See the traffic split to change in Grafana:
+
+<p>
+<img src="traffic_split.png" width="800" />
 
 ## See on Youtube
 

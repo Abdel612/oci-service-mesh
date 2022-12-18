@@ -34,11 +34,13 @@ cd ../..
 mkdir ./Wallet
 mv ./price/Wallet/Wallet.zip ./Wallet/.
 cd ./price/
+cp price.js price.js.copy
 sed -i "s/meshdemo_dbname/$1/g" ./price.js
 sed -i "s/atp_pwd/$2/g" ./price.js
 sed -i "s/admin_pwd/$2/g" ./price.js
 docker build -t ${ocir}/${mesh_name}-pricesvc:v1 .
 docker push ${ocir}/${mesh_name}-pricesvc:v1
+cp price.js.copy price.js
 cd ..
 # BUILD HOME v1 - STATIC
 cd ./home/
@@ -47,8 +49,10 @@ docker build -t ${ocir}/${mesh_name}-homesvc:v1 .
 docker push ${ocir}/${mesh_name}-homesvc:v1
 # BUILD HOME v2 - DYNAMIC
 export admin_link=admin.${dns_domain}
+cp ./html/pricing/index_dynamic.html ./html/pricing/index_dynamic.html.copy
 sed -i "s|admin_link|${admin_link}|g" ./html/pricing/index_dynamic.html
 cp ./html/pricing/index_dynamic.html ./html/pricing/index.html
 docker build -t ${ocir}/${mesh_name}-homesvc:v2 .
 docker push ${ocir}/${mesh_name}-homesvc:v2
+mv ./html/pricing/index_dynamic.html.copy ./html/pricing/index_dynamic.html
 rm -f ./html/pricing/index.html

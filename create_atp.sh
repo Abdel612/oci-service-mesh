@@ -4,6 +4,7 @@
 if [ -z "$1" ] || [ -z "$2" ]; then
   exit
 fi
+cp atp.yaml atp.yaml.copy
 sed -i "s/mesh_name/${mesh_name}/g" atp.yaml
 sed -i "s/mesh_compartment/${mesh_compartment}/g" atp.yaml
 sed -i "s/mesh_dbname/$1/g" atp.yaml
@@ -33,3 +34,4 @@ if [ "$atp_status_status" != "Active" ]; then
 else
    echo "ATP instance $1 is Active."
 fi
+mv atp.yaml.copy atp.yaml

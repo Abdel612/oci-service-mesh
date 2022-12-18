@@ -1,5 +1,10 @@
 # ${log_object_ocid} = LOG object ocid # See https://docs.oracle.com/en-us/iaas/Content/service-mesh-tutorials/service-mesh-overview/00-overview.htm
 # ${logging_dynamicgroup_ocid}
+if [ -z "${log_object_ocid}" ] || [ -z "${logging_dynamicgroup_ocid}" ]; then
+  exit
+fi
+cp grafana.yaml grafana.yaml.copy
+cp logconfig.json logconfig.json.copy
 sed -i "s/mesh_name/${mesh_name}/g" logconfig.json
 sed -i "s/log_object_ocid/${log_object_ocid}/g" logconfig.json
 sed -i "s/mesh_name/${mesh_name}/g" grafana.yaml
@@ -8,3 +13,5 @@ oci logging agent-configuration create --compartment-id ${mesh_compartment} --is
 kubectl create ns monitoring
 kubectl apply -f prometheus.yaml
 kubectl apply -f grafana.yaml
+mv grafana.yaml.copy grafana.yaml
+cp logconfig.json.copy logconfig.json
