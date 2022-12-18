@@ -178,7 +178,7 @@ Alternatively open your local <code>/etc/hosts</code> file and add the following
 
 ## Testing
 <p>
-Access the <code>home.&lt;YOUR MESH DNS DOMAIN HERE&gt;</code> e.g home.mymesh.mysite.com from browser.
+    Access the <code>home.&lt;YOUR MESH DNS DOMAIN HERE&gt;</code> e.g. <code>home.mymesh.mysite.com</code> from browser.
 Reload the page multiple times to see traffic split happening by the 20/80 rule to the homepage.
 View Grafana for the same.
 
