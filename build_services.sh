@@ -3,7 +3,7 @@
 # ${mesh_name}
 # ${dns_domain} = DNS domain name
 # ${ocir}
-if [ -z "$1" ] || [ -z "$2" ] || [ -z "${mesh_name}" ] || [ -z "${dns_domain}" ]; then
+if [ -z "$1" ] || [ -z "$2" ] || [ -z "${mesh_name}" ] || [ -z "${dns_domain}" ] || [ -z "${ocir}" ]; then
   exit
 fi
 if [ ! -f "instantclient-basic-linux.x64-21.7.0.0.0dbru.zip" ]; then
