@@ -211,6 +211,31 @@ See the traffic split to change in Grafana:
 <p>
 <img src="traffic_split.png" width="800" />
 
+## Viewing traffic with Kubeshark
+
+Install kubeshark locally from <a href="https://kubeshark.co/">https://kubeshark.co/</a>
+
+<p>
+Start capturing traffic and visit <code>localhost:8899</code> to view real time streaming traffic:
+
+<pre>
+kubeshark tap -n &lt;YOUR MESH NAME HERE&gt;
+</pre>
+
+<p>
+e.g.
+<pre>
+kubeshark tap -n pricing
+</pre>    
+
+Navigate to your local browser for the Kubeshark views like the service map:
+
+<p>
+<img src="kubeshark.png" width="800" />
+    
+<p>
+<i>Note</i>: OCI Service Mesh OKE cluster access with kubectl need to be setup locally for the Kubeshark accesss
+
 ## See on Youtube
 
 <a href="https://www.youtube.com/watch?v=_J3YhUDN9KM">https://www.youtube.com/watch?v=_J3YhUDN9KM</a>
