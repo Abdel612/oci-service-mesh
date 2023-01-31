@@ -96,7 +96,7 @@ e.g. <code>sh build_services.sh pricemeshdb RockenRoll321#!</code>
 Run <code>sh deploy_services.sh</code>
 
 <p>
-View the pods created <code>kubectl get pods -n ${mesh_name}</code>
+View the deployments created <code>kubectl get deployments -n ${mesh_name}</code>
    
 <p>
 View services created <code>kubectl get services -n ${mesh_name}</code>
@@ -112,30 +112,6 @@ Monitor pods being updated - this will take several minutes to happen
    
 <p>
 View services being updated <code>kubectl get services -n ${mesh_name} --watch</code>
-
-## Create Monitoring (Optional) using oci cli and kubectl
-Create Logging Dynamic Group and the Log Object
-<p>
-See <a href="https://docs.oracle.com/en-us/iaas/Content/service-mesh-tutorials/service-mesh-overview/00-overview.htm">https://docs.oracle.com/en-us/iaas/Content/service-mesh-tutorials/service-mesh-overview/00-overview.htm</a>
-<p>
-Monitoring pods and services will be created in <code>monitoring</code> namespace
-
-<p>
-<pre>
-export log_object_ocid=ocid1.log.oc1.eu-amsterdam-1.amaaaa.....
-export logging_dynamicgroup_ocid=ocid1.dynamicgroup.oc1..
-</pre>
-
-<p>
-Run <code>sh create_monitoring.sh</code>
-
-<p>
-<i>Note</i>: <code>Log object</code> above is expected to run in the same region you used in earlier steps.
-
-<p>
-Monitor services being created <code>kubectl get services -n monitoring --watch</code>
-<p>
-Once the Grafana <code>EXTERNAL-IP</code> shows up, copy it and open in browser to monitor the mesh using Grafana.
 
 ## Access mesh and the NodeJS microservices running in it
 
@@ -175,6 +151,30 @@ Alternatively open your local <code>/etc/hosts</code> file and add the following
 158.101.210.63 home.mymesh.mysite.com
 158.101.211.252 admin.mymesh.mysite.com
 </pre>
+
+## Create Monitoring (Optional) using oci cli and kubectl
+Create Logging Dynamic Group and the Log Object
+<p>
+See <a href="https://docs.oracle.com/en-us/iaas/Content/service-mesh-tutorials/service-mesh-overview/00-overview.htm">https://docs.oracle.com/en-us/iaas/Content/service-mesh-tutorials/service-mesh-overview/00-overview.htm</a>
+<p>
+Monitoring pods and services will be created in <code>monitoring</code> namespace
+
+<p>
+<pre>
+export log_object_ocid=ocid1.log.oc1.eu-amsterdam-1.amaaaa.....
+export logging_dynamicgroup_ocid=ocid1.dynamicgroup.oc1..
+</pre>
+
+<p>
+Run <code>sh create_monitoring.sh</code>
+
+<p>
+<i>Note</i>: <code>Log object</code> above is expected to run in the same region you used in earlier steps.
+
+<p>
+Monitor services being created <code>kubectl get services -n monitoring --watch</code>
+<p>
+Once the Grafana <code>EXTERNAL-IP</code> shows up, copy it and open in browser to monitor the mesh using Grafana.
 
 ## Testing
 <p>
