@@ -152,7 +152,7 @@ Alternatively open your local <code>/etc/hosts</code> file and add the following
 158.101.211.252 admin.mymesh.mysite.com
 </pre>
 
-## Create Monitoring (Optional) using oci cli and kubectl
+## Create Monitoring using oci cli and kubectl
 Create Logging Dynamic Group and the Log Object
 <p>
 See <a href="https://docs.oracle.com/en-us/iaas/Content/service-mesh-tutorials/service-mesh-overview/00-overview.htm">https://docs.oracle.com/en-us/iaas/Content/service-mesh-tutorials/service-mesh-overview/00-overview.htm</a>
