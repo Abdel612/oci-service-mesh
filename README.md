@@ -57,6 +57,13 @@ e.g. <code>sh create_atp.sh pricemeshdb RockenRoll321#!</code>
 
 <p>
 <code>&lt;YOUR ADB PASSWORD HERE&gt;</code> needs to be a valid Autonomous database password, see <a href="https://docs.public.oneportal.content.oci.oraclecloud.com/en-us/iaas/exadata/doc/adb-managing-adb.html#GUID-F6EF6907-3694-4655-AEA1-2691ADFC8E39">here for details</a>.
+    
+<p>
+Test your ADB instance is alive and accessible:
+    
+<pre>
+kubectl get AutonomousDatabases -n ${mesh_name}
+</pre>
 
 ## Create registry (Optional) using oci cli or Cloud UI
 
