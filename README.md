@@ -97,9 +97,6 @@ Run <code>sh deploy_services.sh</code>
 
 <p>
 View the deployments created <code>kubectl get deployments -n ${mesh_name} -o wide</code>
-   
-<p>
-View services created <code>kubectl get services -n ${mesh_name} -o wide</code>
 
 ## Create Service Mesh using the built and deployed services using kubectl
 
